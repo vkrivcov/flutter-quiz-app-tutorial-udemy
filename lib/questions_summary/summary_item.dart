@@ -14,6 +14,7 @@ class SummaryItem extends StatelessWidget {
     final bool isCorrectAnswer =
         itemData['correct_answer'] == itemData['user_answer'];
 
+    // TODO: why are we returning padding Widget here and not something else?
     return Padding(
       padding: const EdgeInsets.all(6.0),
       child: Row(
@@ -21,7 +22,8 @@ class SummaryItem extends StatelessWidget {
         children: [
           QuestionIdentifier(
               isCorrectAnswer: isCorrectAnswer,
-              questionIndex: itemData['question_index'] as int),
+              questionIndex: itemData['question_index'] as int
+          ),
 
           // next to text in a row we want to display a column that contains:
           // - question
@@ -33,6 +35,7 @@ class SummaryItem extends StatelessWidget {
           // when wrapped its actually being wrapped (NOTE: need to experiment
           // with it) i.e. Column with "Expand" only to the size of a "Row",
           // so its all about restriction for expansion here
+          // NOTE: try to put a container here and you will see an overflow
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
