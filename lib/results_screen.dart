@@ -18,14 +18,15 @@ class ResultsScreen extends StatelessWidget {
         {
           'question_index': i,
           'question': questions[i].text,
-          'correct_answer': questions[i].answers[0],
 
-          // 0 index is a correct answer
+          // for simplicity we made 0 index is a correct answer, BUT to avoid
+          // direct guessing we shuffled the questions when we rendered actual
+          // screen widget
+          'correct_answer': questions[i].answers[0],
           'user_answer': chosenAnswers[i]
         },
       );
     }
-
     return summary;
   }
 
@@ -37,9 +38,10 @@ class ResultsScreen extends StatelessWidget {
     // that generates a list where if element is equals then it stays in the
     // list, otherwise its dropped (then we count length of this list) to get
     // number of correct answers
-    // cn be used as lambda instead of anonymous function
+    // can be used as lambda instead of anonymous function
     final numCorrectQuestions = summaryData.where((data) => data['correct_answer'] == data['user_answer']).length;
 
+    // TODO: why sized box and not container directly
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -48,6 +50,7 @@ class ResultsScreen extends StatelessWidget {
             // vertical alignment for column (in certain situations it might be very
             // useful i.e. spaceAround for example -> distribute the size between
             // elements
+            // NOTE: if not set here, all container will be pushed on top
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(

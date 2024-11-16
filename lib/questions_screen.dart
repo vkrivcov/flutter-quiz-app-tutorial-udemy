@@ -15,7 +15,7 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
-  // star with the first question
+  // start with the first question
   var currentQuestionIndex = 0;
 
   void answerQuestion(String selectedAnswer) {
@@ -31,11 +31,15 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   Widget build(BuildContext context) {
     final currentQuestion = questions[currentQuestionIndex];
 
+    // TODO: why sized box and not a container?
     return SizedBox(
-      // special value
+      // special value to fill all available space along a particular axis, good
+      // thing to check if its only related to SizedBox or other components
       width: double.infinity,
 
+      // TODO: any container and not something like Center?
       child: Container(
+        // TODO: related to the above -> is it because we want to easily set margin?
         margin: const EdgeInsets.all(40),
         child: Column(
           // vertical alignment for column (in certain situations it might be very
@@ -56,14 +60,19 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               style: GoogleFonts.lato(
                   color: const Color.fromARGB(255, 201, 152, 251),
                   fontSize: 24,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.bold
+              ),
             ),
             const SizedBox(
               height: 30,
             ),
+
             // use loop to generate multiple Widgets
             // NOTE: ...is a spreading operator that will generate whatever number
             // of elements that is needed!
+            // NOTE: .map will return current element of this iterable modified
+            // by toElement function (lazy execution) and answerText seems to
+            // be a reference to the list item in this case
             ...currentQuestion.getShuffledAnswers().map((answerText) {
               return AnswerButton(
                   answerText: answerText,

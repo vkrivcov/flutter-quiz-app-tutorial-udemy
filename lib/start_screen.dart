@@ -8,10 +8,10 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get the screen dimensions
+    // get the screen dimensions
     final screenWidth = MediaQuery.of(context).size.width;
 
-    // Set the desired width and height as a proportion of the screen size
+    // set the desired width and height as a proportion of the screen size
     final imageWidth = screenWidth * 0.7;
 
     return Center(
@@ -24,7 +24,10 @@ class StartScreen extends StatelessWidget {
 
               // first value is an opacity and set overlay color to write in this case
               // NOTE: can also wrap it with Opacity but its VERY intensive
-              color: const Color.fromARGB(150, 255, 255, 255)),
+              color: const Color.fromARGB(150, 255, 255, 255)
+          ),
+
+          // just one was of adding a bit of space
           const SizedBox(
             height: 80,
           ),
@@ -55,10 +58,7 @@ class StartScreen extends StatelessWidget {
             icon: const Icon(Icons.arrow_right_alt),
 
             // if non icon constructor then it could be child: Text(...)
-            label: Text("Start Quiz!",
-                style: GoogleFonts.lato(
-                  fontSize: 18
-            )),
+            label: Text("Start Quiz!", style: GoogleFonts.lato(fontSize: 18)),
           ),
         ],
       ),

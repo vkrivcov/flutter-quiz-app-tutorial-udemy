@@ -9,6 +9,7 @@ class QuestionIdentifier extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // all because as usual indexes will start from 0
     final questionNumber = questionIndex + 1;
     return Container(
       width: 30,
