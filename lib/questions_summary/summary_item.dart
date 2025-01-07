@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/questions_summary/question_identifier.dart';
 
-import '../constants.dart';
-
 class SummaryItem extends StatelessWidget {
   const SummaryItem({super.key, required this.itemData});
 
