@@ -41,7 +41,8 @@ class ResultsScreen extends StatelessWidget {
     // can be used as lambda instead of anonymous function
     final numCorrectQuestions = summaryData.where((data) => data['correct_answer'] == data['user_answer']).length;
 
-    // TODO: why sized box and not container directly
+    // NOTE: same as in previous example, we can use SizedBox to set the width,
+    // otherwise it could just use Center as a default one
     return SizedBox(
       width: double.infinity,
       child: Container(

@@ -48,7 +48,7 @@ class _QuizState extends State<Quiz> {
   // Widget? activeScreen;
 
   // you probably want to add this method to your widgets (not sure if it will
-  // apply to sate less widgets though)
+  // apply to state less widgets though)
   // @override
   // void initState() {
   //   super.initState();
@@ -57,11 +57,12 @@ class _QuizState extends State<Quiz> {
 
   // looks like a default for this one is whatever you specify in build method
   // and setState is just a separate thing?
-  switchScreen() {
+  startQuiz() {
     setState(() {
       selectedAnswers.clear();
       activeScreen = 'questions-screen';
-      // NOTE: that was a part of the option above
+      // NOTE: that was a part of the option above and relates
+      // to Widget? activeScreen;
       //activeScreen = const QuestionsScreen();
     });
   }
@@ -85,7 +86,7 @@ class _QuizState extends State<Quiz> {
     //     : const QuestionsScreen();
 
     // another way
-    Widget screenWidget = StartScreen(switchScreen);
+    Widget screenWidget = StartScreen(startQuiz);
 
     // this code is executed conditionally
     if (activeScreen == 'questions-screen') {
@@ -93,7 +94,7 @@ class _QuizState extends State<Quiz> {
     }
 
     if (activeScreen == 'results-screen') {
-      screenWidget = ResultsScreen(chosenAnswers: selectedAnswers, onRestart: switchScreen);
+      screenWidget = ResultsScreen(chosenAnswers: selectedAnswers, onRestart: startQuiz);
     }
 
     return MaterialApp(

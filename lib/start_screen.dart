@@ -16,7 +16,7 @@ class StartScreen extends StatelessWidget {
 
     return Center(
       child: Column(
-        // make min vertical axis size
+        // take min vertical axis size
         mainAxisSize: MainAxisSize.min,
         children: [
           Image.asset("assets/images/quiz-logo.png",
@@ -24,8 +24,7 @@ class StartScreen extends StatelessWidget {
 
               // first value is an opacity and set overlay color to write in this case
               // NOTE: can also wrap it with Opacity but its VERY intensive
-              color: const Color.fromARGB(150, 255, 255, 255)
-          ),
+              color: const Color.fromARGB(150, 255, 255, 255)),
 
           // just one was of adding a bit of space
           const SizedBox(

@@ -31,15 +31,21 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   Widget build(BuildContext context) {
     final currentQuestion = questions[currentQuestionIndex];
 
-    // TODO: why sized box and not a container?
+    // NOTE: this is used as an alternative to usual Center -> Column (with
+    // mainAxisSizeL MainAxisSize.min), therefore we just want to have different
+    // approaches
     return SizedBox(
       // special value to fill all available space along a particular axis, good
       // thing to check if its only related to SizedBox or other components
+      // essentially it will take all available space
       width: double.infinity,
 
-      // TODO: any container and not something like Center?
+      // create a box decoration element that will hold everything else + we can
+      // use its properties to set margin to everything
       child: Container(
-        // TODO: related to the above -> is it because we want to easily set margin?
+        // related to global settings of the container so we don't have to do
+        // it for each of the elements separately as column does not have margin
+        // options to be set
         margin: const EdgeInsets.all(40),
         child: Column(
           // vertical alignment for column (in certain situations it might be very
